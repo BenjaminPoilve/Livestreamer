@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		F2A91E361BB58C5400D609F5 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F2A91E351BB58C5400D609F5 /* main.cpp */; };
 		F2A91E381BB58C5400D609F5 /* Livestreamer.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = F2A91E371BB58C5400D609F5 /* Livestreamer.1 */; };
+		F2A920381BB5967D00D609F5 /* libliveMedia.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F2A920371BB5967D00D609F5 /* libliveMedia.a */; };
+		F2A920741BB5A2D400D609F5 /* libgroupsock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F2A920731BB5A2D400D609F5 /* libgroupsock.a */; };
+		F2A920761BB5A2E100D609F5 /* libUsageEnvironment.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F2A920751BB5A2E100D609F5 /* libUsageEnvironment.a */; };
+		F2A920781BB5A2EB00D609F5 /* libBasicUsageEnvironment.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F2A920771BB5A2EB00D609F5 /* libBasicUsageEnvironment.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +32,11 @@
 		F2A91E321BB58C5400D609F5 /* Livestreamer */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Livestreamer; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2A91E351BB58C5400D609F5 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		F2A91E371BB58C5400D609F5 /* Livestreamer.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = Livestreamer.1; sourceTree = "<group>"; };
+		F2A920371BB5967D00D609F5 /* libliveMedia.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libliveMedia.a; path = ../../Libraries/liveMedia/libliveMedia.a; sourceTree = "<group>"; };
+		F2A920731BB5A2D400D609F5 /* libgroupsock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgroupsock.a; path = ../../Libraries/groupsock/libgroupsock.a; sourceTree = "<group>"; };
+		F2A920751BB5A2E100D609F5 /* libUsageEnvironment.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libUsageEnvironment.a; path = ../../Libraries/UsageEnvironment/libUsageEnvironment.a; sourceTree = "<group>"; };
+		F2A920771BB5A2EB00D609F5 /* libBasicUsageEnvironment.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libBasicUsageEnvironment.a; path = ../../Libraries/BasicUsageEnvironment/libBasicUsageEnvironment.a; sourceTree = "<group>"; };
+		F2A9207B1BB5A47100D609F5 /* test.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = test.mp3; path = Livestreamer/test.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +44,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2A920781BB5A2EB00D609F5 /* libBasicUsageEnvironment.a in Frameworks */,
+				F2A920761BB5A2E100D609F5 /* libUsageEnvironment.a in Frameworks */,
+				F2A920741BB5A2D400D609F5 /* libgroupsock.a in Frameworks */,
+				F2A920381BB5967D00D609F5 /* libliveMedia.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,8 +57,13 @@
 		F2A91E291BB58C5400D609F5 = {
 			isa = PBXGroup;
 			children = (
+				F2A920771BB5A2EB00D609F5 /* libBasicUsageEnvironment.a */,
+				F2A920751BB5A2E100D609F5 /* libUsageEnvironment.a */,
+				F2A920731BB5A2D400D609F5 /* libgroupsock.a */,
+				F2A920371BB5967D00D609F5 /* libliveMedia.a */,
 				F2A91E341BB58C5400D609F5 /* Livestreamer */,
 				F2A91E331BB58C5400D609F5 /* Products */,
+				F2A9207B1BB5A47100D609F5 /* test.mp3 */,
 			);
 			sourceTree = "<group>";
 		};
@@ -197,6 +215,19 @@
 		F2A91E3C1BB58C5400D609F5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LIBRARY = "libc++";
+				"HEADER_SEARCH_PATHS[arch=*]" = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"/Users/marie-pierrepoilve/Documents/Libraries/**",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/marie-pierrepoilve/Documents/Libraries/liveMedia",
+					"/Users/marie-pierrepoilve/Documents/Libraries/groupsock",
+					"/Users/marie-pierrepoilve/Documents/Libraries/UsageEnvironment",
+					"/Users/marie-pierrepoilve/Documents/Libraries/BasicUsageEnvironment",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -204,6 +235,18 @@
 		F2A91E3D1BB58C5400D609F5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LIBRARY = "libc++";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/marie-pierrepoilve/Documents/Libraries/liveMedia",
+					"/Users/marie-pierrepoilve/Documents/Libraries/groupsock",
+					"/Users/marie-pierrepoilve/Documents/Libraries/UsageEnvironment",
+					"/Users/marie-pierrepoilve/Documents/Libraries/BasicUsageEnvironment",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -227,6 +270,7 @@
 				F2A91E3D1BB58C5400D609F5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
